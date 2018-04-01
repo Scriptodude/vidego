@@ -30,6 +30,8 @@ func main() {
 	log.Fatal(server.ListenAndServe())
 }
 
+// Writes the content of the path/index.html to the response writer
+// or writes a default Not Found page.
 func writeIndexOrNotFound(path string, response http.ResponseWriter) {
 	htmlPath := config.GetHtmlBaseFolder() + path
 	content, err := ioutil.ReadFile(htmlPath + "/index.html")
