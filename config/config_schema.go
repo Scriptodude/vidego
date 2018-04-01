@@ -15,6 +15,8 @@ type Configuration struct {
 	// The timeout in seconds before a write timeout occurs, defaults to infinity
 	WriteTimeout time.Duration
 
-	// The base folder where to fetch the html from
+	// The base folder where to fetch the html from, must end with a trailing slash '/'
 	HtmlBaseFolder string
+
+	isInit bool
 }

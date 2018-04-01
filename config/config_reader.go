@@ -7,7 +7,13 @@ import (
 	"os"
 )
 
+var config Configuration = Configuration{}
+
 func GetConfigurations() Configuration {
+	if config.isInit {
+		return config
+	}
+
 	file, err := os.Open("config.json")
 	defer file.Close()
 
@@ -18,7 +24,7 @@ func GetConfigurations() Configuration {
 		defaults = true
 	}
 
-	config := Configuration{}
+	config = Configuration{}
 	if defaults {
 		useDefaultConfig(&config)
 	} else {
@@ -31,7 +37,16 @@ func GetConfigurations() Configuration {
 			useDefaultConfig(&config)
 		}
 	}
+	config.isInit = true
 	return config
+}
+
+func GetHtmlBaseFolder() string {
+	if config.isInit {
+		return config.HtmlBaseFolder
+	}
+
+	return GetConfigurations().HtmlBaseFolder
 }
 
 func useDefaultConfig(config *Configuration) {
