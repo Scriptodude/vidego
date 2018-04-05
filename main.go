@@ -12,6 +12,7 @@ import (
 
 func VidegoRootHandler(w http.ResponseWriter, req *http.Request) {
 	log.Printf("Got new request %v", req)
+
 	writeIndexOrNotFound(req.RequestURI, w)
 }
 
@@ -26,6 +27,7 @@ func main() {
 	}
 
 	log.Printf("Starting the webserver with configuration %+v", server)
+	http.HandleFunc("/watch", HandleVideoRequest)
 	http.HandleFunc("/", VidegoRootHandler)
 	log.Fatal(server.ListenAndServe())
 }
