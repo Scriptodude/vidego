@@ -188,21 +188,16 @@
 
   <div class="ui vertical stripe segment">
   	<div class="ui main text container" id="watch">
-	    <form class="ui form">
+	    <form class="ui form" action="/watch">
 				<h4 class="ui dividing header">Video link information</h4>
 				<div class="field">
 					<label>Video URI</label>
 					<div class="field">
-			        	<input type="text" name="video" placeholder="https://www.myexample.com/someVideo">
+			        	<input type="text" name="v" placeholder="https://www.myexample.com/someVideo">
 			      	</div>
 				</div>
-				<div class="field"> 
-					<label>Video Type</label>
-					<select class="ui fluid dropdown">
-						<option value="">Video Type</option>
-						<option value="youtube">Youtube</option>
-						<option value="other">Other</option>
-					</select>
+				<div class="field">
+					<input type="submit">
 				</div>
 			</form>
 		</div>
